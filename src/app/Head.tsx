@@ -24,7 +24,7 @@ export default function Head() {
 			<meta httpEquiv="Content-Type" content-type="text/html; charset=utf-8" />
 
 			<link rel="preconnect" href="https://fonts.googleapis.com" />
-			<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="*" />
+			{/* <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="*" /> */}
 			<link
 				href="https://fonts.googleapis.com/css2?family=Nova+Square&family=Roboto&family=Roboto+Mono&family=Rubik+Burned&display=swap"
 				rel="stylesheet"
