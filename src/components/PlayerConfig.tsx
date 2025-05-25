@@ -1,13 +1,18 @@
 "use client";
 import type { MouseEvent } from "react";
+import styles from "./PlayerConfig.module.css";
 
 interface Props {
-	left: boolean;
+	rightside?: boolean;
 	playerKey: number;
 	key: number;
 }
 
-export default function PlayerConfig({ left, playerKey, key }: Props) {
+export default function PlayerConfig({
+	rightside = false,
+	playerKey,
+	key,
+}: Props) {
 	let activePlayer = 0;
 
 	let activeItem = 0;
@@ -16,49 +21,47 @@ export default function PlayerConfig({ left, playerKey, key }: Props) {
 		console.log("hello");
 	}
 
-	// TODO can use the left prop for grid layout similar to the original's css
+	// TODO can use the rightside prop for grid layout similar to the original's css
 
 	return (
-		<div className="player" key={key}>
-			<div className="god_buttons">
-				<div
-					className="god_options"
-					onClick={() => {
-						activePlayer = playerKey;
-						//toggleMenu(GodOptionsMenu);
-					}}
-				></div>
-				<div
-					className="god_info"
-					onClick={() => {
-						activePlayer = playerKey;
-						//toggleMenu(GodInfoMenu);
-					}}
-				></div>
-			</div>
+		<div
+			className={`${styles.player} ${rightside ? styles.rightside : ""}`}
+			key={key}
+		>
+			{/* <div className="god_buttons"> */}
 			<div
-				className="god_icon"
+				className={styles.godIcon}
+				onKeyUp={() => {
+					activePlayer = playerKey;
+					// toggleMenu(GodSelectMenu);
+				}}
 				onClick={() => {
 					activePlayer = playerKey;
 					// toggleMenu(GodSelectMenu);
 				}}
 			>
-				<div className="icon"></div>
+				<div className="icon">{""}</div>
 			</div>
-			<div className="god_items">
-				{[0, 1, 2, 3, 4, 5].map((itemKey, index) => (
-					<div
-						className="item"
-						key={index}
-						onClick={() => {
-							activePlayer = playerKey;
-							activeItem = itemKey;
-							// toggleMenu(ItemSelectMenu);
-						}}
-					></div>
-				))}
-			</div>
-			<div className="god_bar">
+
+			{[0, 1, 2, 3, 4, 5].map((itemKey) => (
+				<div
+					className="item"
+					key={itemKey}
+					onKeyUp={() => {
+						activePlayer = playerKey;
+						activeItem = itemKey;
+						// toggleMenu(ItemSelectMenu);
+					}}
+					onClick={() => {
+						activePlayer = playerKey;
+						activeItem = itemKey;
+						// toggleMenu(ItemSelectMenu);
+					}}
+				>
+					{""}
+				</div>
+			))}
+			<div className={styles.godBars}>
 				<div
 					className="god_health"
 					onMouseDown={(e: MouseEvent) => {
@@ -71,6 +74,10 @@ export default function PlayerConfig({ left, playerKey, key }: Props) {
 						// clearHMUpdate()
 					}}
 					onMouseOut={() => {
+						return;
+						//clearHMUpdate()
+					}}
+					onBlur={() => {
 						return;
 						//clearHMUpdate()
 					}}
@@ -91,9 +98,40 @@ export default function PlayerConfig({ left, playerKey, key }: Props) {
 						return;
 						// clearHMUpdate()
 					}}
+					onBlur={() => {
+						return;
+						// clearHMUpdate()
+					}}
 				>
 					&nbsp;100%&nbsp;
 				</div>
+			</div>
+
+			<div
+				className="god_options"
+				onClick={() => {
+					activePlayer = playerKey;
+					//toggleMenu(GodOptionsMenu);
+				}}
+				onKeyUp={() => {
+					activePlayer = playerKey;
+					//toggleMenu(GodOptionsMenu);
+				}}
+			>
+				{""}
+			</div>
+			<div
+				className="god_info"
+				onKeyUp={() => {
+					activePlayer = playerKey;
+					//toggleMenu(GodInfoMenu);
+				}}
+				onClick={() => {
+					activePlayer = playerKey;
+					//toggleMenu(GodInfoMenu);
+				}}
+			>
+				{""}
 			</div>
 		</div>
 	);

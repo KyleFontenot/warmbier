@@ -1,0 +1,17 @@
+.player {
+	border: 1px solid red;
+	display: grid;
+	grid-template-columns: 1.5fr repeat(6, 1fr);
+	grid-template-rows: 1fr 1fr;
+}
+
+.godIcon {
+	grid-row: span 2;
+}
+.godBars {
+	grid-column: span 4;
+}
+
+.rightside {
+	grid-template-columns: repeat(6, 1fr) 1.5fr;
+}

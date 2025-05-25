@@ -157,9 +157,22 @@ a.secondary {
 		justify-content: center;
 	}
 }
+#teams {
+	display: flex;
+	flex-direction: column;
+	width: clamp(8rem, 90%, 90rem);
+	justify-content: center;
+	margin-inline: auto;
+}
 
 @media (prefers-color-scheme: dark) {
 	.logo {
 		filter: invert();
+	}
+}
+
+@media (min-width: 700px) {
+	#teams {
+		flex-direction: row;
 	}
 }

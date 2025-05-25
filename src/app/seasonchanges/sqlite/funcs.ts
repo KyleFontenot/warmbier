@@ -1,9 +1,17 @@
 import Database from "better-sqlite3";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { dirname } from "node:path";
 
-const db = new Database(
-	path.resolve(import.meta.dirname, "./seasonchanges.sqlite"),
-);
+const __filename = fileURLToPath(import.meta.url);
+const dir = dirname(__filename);
+
+console.log("dirname ::: ", dir);
+
+const db = new Database(path.resolve(dir, "./seasonchanges.sqlite"));
+// console.log(path.resolve( "./seasonchanges.sqlite"));
+
+// const db = new Database("./seasonchanges.sqlite");
 
 export async function getSeasonChanges() {
 	const all = db.prepare("SELECT * FROM releases").all();

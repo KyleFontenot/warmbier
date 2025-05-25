@@ -1,7 +1,10 @@
 import { getLocalJson } from "./funcs";
 
-export async function GET(request: Request) {
+export async function GET() {
 	const viaJson = await getLocalJson();
 
-	return new Response(JSON.stringify(viaJson));
+	const res = new Response(JSON.stringify(viaJson));
+	res.headers.set("Cache-Control", "max-age=800");
+
+	return res;
 }
