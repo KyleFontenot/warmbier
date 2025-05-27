@@ -5,10 +5,15 @@
 }
 .header {
 	border-bottom: 1px solid var(--color);
+	font-size: 1.2rem;
 }
 .code {
 	font-family: monospace;
 	padding: 0.75rem 0.5rem;
 	line-height: 1.4;
 	font-size: 0.6rem;
+}
+.timestamp {
+	color: #f7e2a2;
+	font-size: 1.5rem;
 }

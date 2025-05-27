@@ -1,4 +1,4 @@
-import { getSeasonChanges } from "./funcs";
+import { getSeasonChanges, first, firstOff } from "./funcs";
 
 export async function GET() {
 	const viaSqlite = await getSeasonChanges();

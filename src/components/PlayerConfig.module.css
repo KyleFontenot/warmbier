@@ -1,5 +1,5 @@
 .player {
-	border: 1px solid red;
+	/* border: 1px solid red; */
 	display: grid;
 	grid-template-columns: 1.5fr repeat(6, 1fr);
 	grid-template-rows: 1fr 1fr;

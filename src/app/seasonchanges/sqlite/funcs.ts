@@ -2,16 +2,16 @@ import Database from "better-sqlite3";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { dirname } from "node:path";
+// import sqlitefile from "@/db/seasonchanges.sqlite";
 
 const __filename = fileURLToPath(import.meta.url);
 const dir = dirname(__filename);
 
-console.log("dirname ::: ", dir);
+// const db = new Database(path.resolve(dir, "./seasonchanges.sqlite"));
 
-const db = new Database(path.resolve(dir, "./seasonchanges.sqlite"));
-// console.log(path.resolve( "./seasonchanges.sqlite"));
-
-// const db = new Database("./seasonchanges.sqlite");
+const db = new Database(
+	path.join(process.cwd(), "src/db/seasonchanges.sqlite"),
+);
 
 export async function getSeasonChanges() {
 	const all = db.prepare("SELECT * FROM releases").all();
@@ -23,22 +23,29 @@ export async function getSeasonChanges() {
 
 export async function getLatestSeasonChange() {
 	const latest = db
-		.prepare("SELECT * FROM releases ORDER BY version DESC LIMIT 1")
+		.prepare(
+			"SELECT * FROM releases  WHERE version_numeric = (SELECT MAX(version_numeric) FROM releases);",
+		)
 		.all();
 	return latest;
 }
 
-async function seedDB() {
-	for (let i = 0; i < 10; i++) {
-		const insert = await db
-			.prepare("INSERT INTO releases (version, description) VALUES (?, ?, ?)")
-			.all([
-				`1.1.${i}`,
-				`Placeholder description for version ${i}, Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum `,
-			]);
-	}
-	console.log("Seeded 10");
+export let first = true;
+export function firstOff() {
+	first = false;
 }
+
+// export async function seedDB() {
+// 	for (let i = 0; i < 10; i++) {
+// 		const insert = await db
+// 			.prepare("INSERT INTO releases (version, description) VALUES (?, ?)")
+// 			.all([
+// 				`1.1.${i}`,
+// 				`Placeholder description for version ${i}, Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum `,
+// 			]);
+// 	}
+// 	console.log("Seeded 10");
+// }
 
 // Generated from AI.
 function sanitizeSQL(input: string) {
@@ -92,3 +99,4 @@ function sanitizeSQL(input: string) {
 
 	return sanitized;
 }
+export { db };

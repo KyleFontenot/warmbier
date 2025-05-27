@@ -1,22 +1,46 @@
 {
-	"latest": {
-		"foo": 1,
-		"bar": 2,
-		"baz": 5
+	"11.4.7978.19": {
+		"id": null,
+		"version": "11.4.7978.19",
+		"description": "Season 13: Major QoL changes, etc."
 	},
-	"8.6.0": {
-		"foo": 1,
-		"bar": 2,
-		"baz": 5
+	"11.12.8218.2": {
+		"id": null,
+		"version": "11.4.7978.19",
+		"description": "Alongside Update 11.12, we are also kicking off a special partnership event for The Lord of the Rings: The War of the Rohirrim! For details on how to win free cosmetics in both SMITE 1 & SMITE 2, check out the blog linked "
 	},
-	"8.4.0": {
-		"foo": 1,
-		"bar": 2,
-		"baz": 5
+	"11.11.8187": {
+		"id": null,
+		"version": "11.4.7978.19",
+		"description": "Update 11.11 & 11.12 will see the return of the classic SMITE Battle Pass “Blast From The Past” but with two brand-new themes! Starting in 11.11 we have the “Bytes From The Past” Battle Pass which offers account cosmetics and skins from throughout SMITE’s history. Hop in, grab the Pass, and take a Byte out of the past!"
 	},
-	"8.2.0": {
-		"foo": 1,
-		"bar": 2,
-		"baz": 5
+	"11.10.8152.2": {
+		"id": null,
+		"version": "11.10.8152.2",
+		"description": "Demon Scourge Bonus"
+	},
+
+	"11.9.8127.3": {
+		"id": null,
+		"version": "11.9.8127.3",
+		"description": "The Seraphim Bonus"
+	},
+
+	"11.9.8127": {
+		"id": null,
+		"version": "11.9.8127",
+		"description": "Starting in CA2, SMITE 2 players who purchase a Cross-Gen Pass in SMITE 1 will receive both Cross-Gen Pass skins in SMITE 2 – with no Pass progression required. For example: If you purchase The Seraphim Cross-Gen Pass in the 11.9 SMITE 1 Update on September 3, you will: In SMITE 1:Unlock Seraph’s Bow Neith instantlyUnlock Divine Retribution Thanatos at Level 50. In SMITE 2: Unlock Seraph’s Bow Neith and Divine Retribution Thanatos at Log-in during the CA2 Update – tentatively scheduled for September 17"
+	},
+
+	"11.8.8096.7": {
+		"id": null,
+		"version": "11.8.8096.7",
+		"description": "Underworld Unleashed Bonus"
+	},
+
+	"11.8.8096": {
+		"id": null,
+		"version": "11.8.8096",
+		"description": "We’ve received strong feedback that our Support players are feeling slightly too squishy, and we believe some of this can be solved with the Green Buff effects. This small buff is intended to further incentivize players to focus a little more on having this buff active leading into pivotal moments of the game. Green BuffDecreased Protection threshold for additional Health and Mana from 50 to 40. More action the better! To encourage god combat in the solo lane, we’re increasing the Mana returns from Blue Buff when hitting a God. Blue Buff Increased Mana restore on god hit from 2% to 3% of your Missing Mana"
 	}
 }
